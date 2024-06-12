@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -8,8 +10,7 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
+        Filme meuFilme = new Filme("O poderoso chefão", 1970);
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -24,17 +25,14 @@ public class Principal {
         //meuFilme.totalDeAvaliacoes = 1;
         //System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(200);
 
@@ -54,8 +52,7 @@ public class Principal {
         filtro.filtra(episodio);
 
         // criando a variavel, com inferência de tipo.
-        var filmeDoPaulo = new Filme();
-        filmeDoPaulo.setNome("DogVille");
+        var filmeDoPaulo = new Filme("DogVille", 2003);
         filmeDoPaulo.setDuracaoEmMinutos(200);
         filmeDoPaulo.setAnoDeLancamento(2003);
         filmeDoPaulo.avalia(10);
@@ -68,5 +65,7 @@ public class Principal {
         System.out.println("Primeiro Filme " + listaDeFilmes.get(0).toString());
 
         System.out.println(listaDeFilmes);
+        Object objeto = filmeDoPaulo;
+        System.out.println(objeto);
     }
 }
